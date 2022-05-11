@@ -54,53 +54,49 @@ $users = [
 					'activities' => [
 									"school" => 'painting',
 									'home' => 'drawing'
-					],
+					]
 	],  
 
 
 
 	(object)[
-		'id' => 4,
-		'name' => 'yasser',
+		  
+		'id' => 2,
+		'name' => 'mohamed',
 		"gender" => (object)[
 						'gender' => 'm'
 		],
 		'hobbies' => [
-						'programming',
+						'swimming', 'running',
 		],
 		'activities' => [
-						"school" => 'javascript / ajax / json ',
-						'home' => 'php',
-					
-
+						"school" => 'painting',
+						'home' => 'drawing',
+						
+		]
+	
 		],
-  
+		(object)[
+		  
+			'id' => 2,
+			'name' => 'yasser',
+			"gender" => (object)[
+							'gender' => 'm'
+			],
+			'hobbies' => [
+							'swimming', 'running',
+			],
+			'activities' => [
+							"school" => 'painting',
+							'home' => 'drawing',
+							
+			]
 		
-			
-	],
-
-	(object)[
-		'id' => 5,
-		'name' => 'osama',
-		"gender" => (object)[
-						'gender' => 'm'
-		],
-		'hobbies' => [
-						'programming',
-		],
-		'activities' => [
-						"school" => 'javascript / ajax / json ',
-						'home' => 'php',
-					
-
-		],
-  
-		
-			
-	]
-
+		]
 
 ];
+
+
 
 
 $counter =count($users);
@@ -161,10 +157,22 @@ $counTitle=count($titleColumn);
 											   
 																	<td ><?php echo $users[$property]->id?> </td>
 																	<td ><?php echo $users[$property]->name?> </td>
-																	<td ><?php echo $users[$property]->gender->gender?> </td>		
+																	<td ><?php 
+																	       if($users[$property]->gender->gender == "m")
+																         echo	 "male";
+																									else{
+																										echo	 "female";
+																									}
+																		?> 
+																		</td>		
 																	<td> <?php foreach($users[$property]->hobbies as $key => $value){echo $value ."<br>"; }?>   </td>
-																	<td><?php foreach(  $users[$property]->activities as $value){	echo $value."<br>";	} ?></td> 
-								     
+																	<td><?php foreach(  $users[$property]->activities as $value){	echo  $value."<br>";	};	?></td> 
+																	
+																
+												
+																 <?php
+														
+																	?>
 													
 											</tr>		
 
@@ -227,7 +235,7 @@ $counTitle=count($titleColumn);
 				}
 
 				thead th{
-					padding:25px 0 25px;
+					padding:18px 0 18px;
 					background-color: black;
 					color: white;
 					font-size: 20px;
@@ -246,8 +254,10 @@ $counTitle=count($titleColumn);
 				.logo-design{
 				   display: inline-block;
 							padding: 10px;
+							margin-top: 5px;
 							box-shadow: 2px 2px 10px #ff7904a8,-2px -2px 10px #ff7904a8;
 					cursor: all-scroll;
+					font-size: 16px;
 				}
 
 
