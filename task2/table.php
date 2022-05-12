@@ -226,12 +226,13 @@ $counTitle=count($titleColumn);
 				.title  td{
 					color:#ff7904 !important;
 					font-weight:bold;
-					background-color: black;
+					background-color:red ;
 				}
 				.title td {
 				
-					background-color: black !important;
-					border:0 !important
+					background-color: #101f74 !important;
+					border:0  !important;
+
 				}
 
 				thead th{
