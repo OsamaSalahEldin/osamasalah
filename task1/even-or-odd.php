@@ -2,18 +2,7 @@
 
 
 
-
-
-
-
-
-
-
-
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -27,13 +16,7 @@
 <body>
 	
 
-
-
-
-
 <section id="secOne">
-
-
 
 						       <form method="GET">
 
@@ -43,64 +26,35 @@
 																</div>  
 																<button type="sumit">chek it</button>
 
-
-
-
                 <div>
-
-
-
-             
+           
                   <?php
 															
 																	
-																		if($_GET){
+																		if(!empty($_GET['num1'])){
 																			$number = $_GET['num1'];
-                    if($_GET['num1'] == 0 ){
-																					echo "zero is even value";
-																				}
-
-                    if ( is_float($number / 2)){
-																					echo $number . " is odd number"; 
+                    
+                    if ( ($number)% 2 == 0){
+																					echo $number . " is even number"; 
 																				}
                     else{
 
-																					echo $number . " is even  number"; 
+																					echo $number . " is odd  number"; 
 																				}
-
-
-
-
 
 
 																		}
 																		
-																		
-																		
-																		
-																		
-																		
-																		
-																		
+																							
 																		?>
 
 
-
-
-
 												    </div>
-
-
-
-
-
 
 													
              </form>
 
             
-
-
 </section>
 
 
