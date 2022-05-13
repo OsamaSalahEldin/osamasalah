@@ -73,7 +73,9 @@ $users = [
 						"school" => 'painting',
 						'home' => 'drawing',
 						
-		]
+		],
+
+		
 	
 		],
 		(object)[
@@ -89,8 +91,10 @@ $users = [
 			'activities' => [
 							"school" => 'painting',
 							'home' => 'drawing',
-							
-			]
+							"phone"=>"web"
+			],
+			
+
 		
 		]
 
@@ -99,11 +103,9 @@ $users = [
 
 
 
-$counter =count($users);
+
 
 // if you want add column you should first add the name here 
-$titleColumn =["id","name","gender","hobbies","activities"];
-$counTitle=count($titleColumn);
 
 
 
@@ -132,51 +134,70 @@ $counTitle=count($titleColumn);
         <table class="table" >
 									  <thead>
 									      <tr>      
-										   		<?php   echo" <th colspan=\" {$counTitle}\"><span class='logo-design'>NTI<span></th>"    ?> 
+										   		<?php   
+															
+															 foreach($users[0] as $property => $value){
+																	     echo "<td>{$property}</td>";
+																}
+															
+															?> 
 												 	</tr>
 											</thead>
 
 											<tbody>
-											<tr class="title"> 
-             
-											 <?php foreach ($titleColumn as $value) {?>		
-
-               <td><?php echo $value ?></td>
 											
-													<?php }?>
-
+											
 
 										</tr>
 									
 
-										<?php foreach ($users as $property => $value){?>
-
+										<?php foreach ($users as $indexed => $user){?>
               
-											<tr>
-              
-											   
-																	<td ><?php echo $users[$property]->id?> </td>
-																	<td ><?php echo $users[$property]->name?> </td>
-																	<td ><?php 
-																	       if($users[$property]->gender->gender == "m")
-																         echo	 "male";
-																									else{
-																										echo	 "female";
-																									}
-																		?> 
-																		</td>		
-																	<td> <?php foreach($users[$property]->hobbies as $key => $value){echo $value ."<br>"; }?>   </td>
-																	<td><?php foreach(  $users[$property]->activities as $value){	echo  $value."<br>";	};	?></td> 
-																	
-																
-												
-																 <?php
-														
-																	?>
-													
-											</tr>		
+              							           
+										 	<tr>
+               
+												  <?php foreach ($user as $property => $value){
 
-										
+
+
+                        echo "<td>";
+
+																								 if(gettype($value)=="array" || gettype($value)=="object" ){
+
+																							    	foreach($value as $key => $array_object_value){
+
+
+																												 if($property == 'gender' && $key == 'gender'){
+
+																																	if($array_object_value  == 'm'){
+																																		$array_object_value = 'male';
+																																 	}
+																																	
+																														else{
+																															$array_object_value	= 'female';
+																														} 
+																																	
+																			
+
+																								         	
+
+																					        	}
+                              echo $array_object_value . " <br>";
+																														}
+																       }
+																										 else{
+
+																														echo $value ;
+
+																						        	}
+                                   
+
+																								echo "</td>";
+
+
+																											}		?>                    
+              
+											 </tr>
 
 										<?php }?>
 
